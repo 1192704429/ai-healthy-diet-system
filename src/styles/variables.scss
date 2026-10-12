@@ -1,0 +1,40 @@
+// -------------------------------
+// 侧边栏相关样式变量
+// -------------------------------
+// 侧边栏菜单文字颜色
+$menuText: #bfcbd9;
+// 侧边栏菜单处于激活状态时文字的颜色
+$menuActiveText: #409EFF;
+// 侧边栏子菜单处于激活状态时文字的颜色
+$subMenuActiveText: #f4f4f5;
+// 侧边栏菜单的背景颜色
+$menuBg: #304156;
+// 鼠标悬停在侧边栏菜单上时的背景颜色
+$menuHover: #263445;
+// 侧边栏子菜单的背景颜色
+$subMenuBg: #1f2d3d;
+// 鼠标悬停在侧边栏子菜单上时的背景颜色
+$subMenuHover: #001528;
+// 侧边栏的宽度
+$sideBarWidth: 210px;
+
+// :export 指令是供 webpack 使用的关键，用于在 JS 和 Sass 之间共享变量
+// 参考：https://www.bluematador.com/blog/how-to-share-variables-between-js-and-sass
+:export {
+  // 导出菜单文字默认颜色
+  menuText: $menuText;
+  // 导出菜单激活状态文字颜色
+  menuActiveText: $menuActiveText;
+  // 导出子菜单激活状态文字颜色
+  subMenuActiveText: $subMenuActiveText;
+  // 导出菜单背景颜色
+  menuBg: $menuBg;
+  // 导出菜单悬停背景颜色
+  menuHover: $menuHover;
+  // 导出子菜单背景颜色
+  subMenuBg: $subMenuBg;
+  // 导出子菜单悬停背景颜色
+  subMenuHover: $subMenuHover;
+  // 导出侧边栏宽度
+  sideBarWidth: $sideBarWidth;
+}

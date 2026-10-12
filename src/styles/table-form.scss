@@ -1,0 +1,633 @@
+// 表格、表单、按钮等通用样式
+// 导入全局变量
+@import './variables.scss';
+
+// 表格容器 - 简洁现代风格
+.table-wrapper {
+  background-color: $menuText;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.08);
+  margin-bottom: 0;
+  overflow: hidden;
+  
+  .modern-table {
+    // 表格整体样式
+    ::v-deep .el-table {
+      border: none;
+      background-color: transparent;
+      
+      // 表头样式 - 优化文字格式
+      .el-table__header-wrapper {
+        .el-table__header {
+          th {
+            background-color: #f5f7fa;
+            border-bottom: 1px solid rgba($menuBg, 0.15) !important;
+            padding: 14px 0;
+            border-top: none;
+            
+            .cell {
+              padding: 0 12px;
+            }
+            
+            &:first-child {
+              padding-left: 20px;
+              
+              .cell {
+                padding-left: 0;
+              }
+            }
+            
+            &:last-child {
+              padding-right: 20px;
+              
+              .cell {
+                padding-right: 0;
+              }
+            }
+          }
+        }
+      }
+      
+      // 表格主体样式 - 优化文字基本样式
+      .el-table__body-wrapper {
+        .el-table__body {
+          tr {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background-color: $menuText;
+            
+            &:hover {
+              background-color: #f5f7fa;
+            }
+            
+            td {
+              border-bottom: 1px solid rgba($menuBg, 0.15) !important;
+              padding: 16px 0;
+              color: #303133;
+              font-size: 14px;
+              font-weight: 400;
+              line-height: 1.6;
+              border-right: none;
+              
+              .cell {
+                color: #303133;
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 1.6;
+                padding: 0 12px;
+              }
+              
+              &:first-child {
+                padding-left: 20px;
+                
+                .cell {
+                  padding-left: 0;
+                }
+              }
+              
+              &:last-child {
+                padding-right: 20px;
+                
+                .cell {
+                  padding-right: 0;
+                }
+              }
+            }
+          }
+          
+          // 斑马纹样式
+          tr.el-table__row--striped {
+            background-color: #fafafa;
+            
+            &:hover {
+              background-color: #f5f7fa;
+            }
+          }
+        }
+      }
+      
+      // 空数据样式
+      .el-table__empty-block {
+        background-color: transparent;
+        padding: 40px 0;
+        
+        .el-table__empty-text {
+          color: darken($menuText, 40%);
+        }
+      }
+      
+      // 加载遮罩样式
+      .el-loading-mask {
+        background-color: rgba(255, 255, 255, 0.9);
+        border-radius: 8px;
+      }
+      
+      // 移除表格边框
+      &::before {
+        display: none;
+      }
+      
+      &::after {
+        display: none;
+      }
+    }
+    
+    // 操作按钮样式 - 高级文字链接风格
+    ::v-deep .el-button--text {
+      padding: 4px 8px;
+      font-size: 14px;
+      font-weight: 500;
+      color: $menuHover;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      border: none;
+      background: transparent;
+      margin: 0 8px 0 0;
+      border-radius: 4px;
+      position: relative;
+      
+      &:last-child {
+        margin-right: 0;
+      }
+      
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 2px;
+        left: 8px;
+        right: 8px;
+        height: 2px;
+        background-color: $menuHover;
+        transform: scaleX(0);
+        transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      
+      &:hover {
+        color: $subMenuHover;
+        background-color: rgba(64, 158, 255, 0.08);
+        
+        &::after {
+          transform: scaleX(1);
+        }
+      }
+      
+      &.el-button--danger {
+        color: #f56c6c;
+        
+        &::after {
+          background-color: #f56c6c;
+        }
+        
+        &:hover {
+          color: #f78989;
+          background-color: rgba(245, 108, 108, 0.08);
+        }
+      }
+    }
+    
+    // 选择框样式
+    ::v-deep .el-checkbox {
+      .el-checkbox__input {
+        .el-checkbox__inner {
+          border-color: rgba($menuBg, 0.15);
+          border-radius: 4px;
+          width: 16px;
+          height: 16px;
+          
+          &:hover {
+            border-color: $menuHover;
+          }
+          
+          &::after {
+            height: 8px;
+            left: 5px;
+            top: 2px;
+            width: 4px;
+          }
+        }
+        
+        &.is-checked .el-checkbox__inner {
+          background-color: $menuHover;
+          border-color: $menuHover;
+        }
+      }
+    }
+  }
+}
+
+// 搜索表单样式 - 简洁现代风格
+.search-wrapper {
+  background-color: $menuText;
+  border-radius: 8px;
+  padding: 16px 20px;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.08);
+  margin-bottom: 16px;
+  
+  .search-form,
+  .query-form {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    
+    .el-form-item {
+      margin-bottom: 0;
+      margin-right: 0;
+      
+      label {
+        color: darken($menuText, 60%);
+        font-weight: 400;
+        font-size: 14px;
+        margin-right: 8px;
+      }
+      
+      .el-input {
+        width: 200px;
+        
+        .el-input__inner {
+          border-radius: 4px;
+          border: 1px solid rgba($menuBg, 0.15) !important;
+          height: 32px;
+          line-height: 32px;
+          font-size: 14px;
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          
+          &:hover {
+            border-color: rgba($menuHover, 0.5) !important;
+          }
+          
+          &:focus {
+            border-color: $menuHover !important;
+            box-shadow: 0 0 0 2px rgba($menuHover, 0.1);
+          }
+        }
+      }
+      
+      .el-select {
+        width: 200px;
+        
+        .el-input__inner {
+          border-radius: 4px;
+          border: 1px solid rgba($menuBg, 0.15) !important;
+          height: 32px;
+          line-height: 32px;
+          font-size: 14px;
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          
+          &:hover {
+            border-color: rgba($menuHover, 0.5) !important;
+          }
+          
+          &:focus {
+            border-color: $menuHover !important;
+            box-shadow: 0 0 0 2px rgba($menuHover, 0.1);
+          }
+        }
+      }
+      
+      .el-date-editor {
+        width: 360px;
+        
+        .el-input__inner {
+          border-radius: 4px;
+          border: 1px solid rgba($menuBg, 0.15) !important;
+          height: 32px;
+          line-height: 32px;
+          font-size: 14px;
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          
+          &:hover {
+            border-color: rgba($menuHover, 0.5) !important;
+          }
+          
+          &:focus {
+            border-color: $menuHover !important;
+            box-shadow: 0 0 0 2px rgba($menuHover, 0.1);
+          }
+        }
+    }
+  }
+}
+
+// 首页和其他页面的 query-form 样式（与 search-form 共享样式）
+.query-form {
+  .el-form-item {
+    margin-bottom: 0;
+    margin-right: 0;
+    
+    label {
+      color: darken($menuText, 60%);
+      font-weight: 400;
+      font-size: 14px;
+      margin-right: 8px;
+    }
+    
+    .el-input {
+      .el-input__inner {
+        border-radius: 4px;
+        border: 1px solid rgba($menuBg, 0.15) !important;
+        height: 32px;
+        line-height: 32px;
+        font-size: 14px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        
+        &:hover {
+          border-color: rgba($menuHover, 0.5) !important;
+        }
+        
+        &:focus {
+          border-color: $menuHover !important;
+          box-shadow: 0 0 0 2px rgba($menuHover, 0.1);
+        }
+      }
+    }
+    
+    .el-select {
+      .el-input__inner {
+        border-radius: 4px;
+        border: 1px solid rgba($menuBg, 0.15) !important;
+        height: 32px;
+        line-height: 32px;
+        font-size: 14px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        
+        &:hover {
+          border-color: rgba($menuHover, 0.5) !important;
+        }
+        
+        &:focus {
+          border-color: $menuHover !important;
+          box-shadow: 0 0 0 2px rgba($menuHover, 0.1);
+        }
+      }
+    }
+    
+    .el-date-editor {
+      .el-input__inner {
+        border-radius: 4px;
+        border: 1px solid rgba($menuBg, 0.15) !important;
+        height: 32px;
+        line-height: 32px;
+        font-size: 14px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        
+        &:hover {
+          border-color: rgba($menuHover, 0.5) !important;
+        }
+        
+        &:focus {
+          border-color: $menuHover !important;
+          box-shadow: 0 0 0 2px rgba($menuHover, 0.1);
+        }
+      }
+    }
+  }
+  
+  .search-buttons {
+      margin-left: auto;
+      display: flex;
+      gap: 8px;
+      
+      .el-button {
+        border-radius: 6px;
+        height: 32px;
+        padding: 0 20px;
+        font-size: 14px;
+        font-weight: 500;
+        transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        border: none;
+        background-color: $menuText;
+        color: darken($menuText, 60%);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+        
+        &:hover:not(:disabled) {
+          background-color: #f5f7fa;
+          color: $menuHover;
+          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+          transform: translateY(-1px);
+        }
+        
+        &:active:not(:disabled) {
+          transform: translateY(0);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+        }
+        
+        &.el-button--primary {
+          background-color: $menuBg;
+          border: none;
+          color: #ffffff !important;
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+          
+          &:hover {
+            background-color: $menuHover;
+            color: #ffffff !important;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+            transform: translateY(-1px);
+          }
+          
+          &:active {
+            background-color: $menuBg;
+            color: #ffffff !important;
+            transform: translateY(0);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+          }
+        }
+        
+        &:disabled {
+          opacity: 0.5;
+          cursor: not-allowed;
+          box-shadow: none;
+          
+          &:hover {
+            transform: none;
+            box-shadow: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+// 操作按钮区域 - 高级现代风格
+.action-buttons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 16px;
+  
+  .el-button {
+    border-radius: 6px;
+    height: 36px;
+    padding: 0 24px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    border: none;
+    background-color: $menuText;
+    color: darken($menuText, 60%);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    position: relative;
+    overflow: hidden;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      transition: left 0.5s;
+    }
+    
+    &:hover:not(:disabled)::before {
+      left: 100%;
+    }
+    
+    &:hover:not(:disabled) {
+      background-color: #f5f7fa;
+      color: $menuHover;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+      transform: translateY(-1px);
+    }
+    
+    &:active:not(:disabled) {
+      transform: translateY(0);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    }
+    
+    &.el-button--primary {
+      background-color: $menuBg;
+      border: none;
+      color: #ffffff !important;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+      
+          &:hover {
+            background-color: $menuHover;
+            color: #ffffff !important;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+            transform: translateY(-2px);
+          }
+          
+          &:active {
+            background-color: $menuBg;
+            color: #ffffff !important;
+            transform: translateY(0);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+          }
+    }
+    
+    &.el-button--danger {
+      background-color: $menuText;
+      color: #f56c6c;
+      
+      &:hover:not(:disabled) {
+        background-color: rgba(245, 108, 108, 0.1);
+        color: #f78989;
+        box-shadow: 0 3px 8px rgba(245, 108, 108, 0.2);
+      }
+    }
+    
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      box-shadow: none;
+      
+      &:hover {
+        transform: none;
+        box-shadow: none;
+      }
+    }
+  }
+}
+
+// 对话框样式 - 高级现代风格
+.el-dialog {
+  border-radius: 12px !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12) !important;
+  overflow: hidden;
+  
+  .el-dialog__header {
+    padding: 20px 24px !important;
+    border-bottom: 1px solid rgba($menuBg, 0.15) !important;
+    background-color: #fafafa;
+    
+    .el-dialog__title {
+      font-size: 18px !important;
+      font-weight: 600 !important;
+      color: #303133 !important;
+    }
+    
+    .el-dialog__close {
+      color: #909399;
+      font-size: 18px;
+      
+      &:hover {
+        color: $menuHover;
+      }
+    }
+  }
+  
+  .el-dialog__body {
+    padding: 24px !important;
+    background-color: #ffffff;
+  }
+  
+  .el-dialog__footer {
+    padding: 16px 24px !important;
+    border-top: 1px solid rgba($menuBg, 0.15) !important;
+    background-color: #fafafa;
+    
+    .dialog-footer {
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+      
+      .el-button {
+        border-radius: 6px !important;
+        height: 36px !important;
+        padding: 0 24px !important;
+        font-size: 14px !important;
+        font-weight: 500 !important;
+        transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        border: none !important;
+        
+        &:not(.el-button--primary) {
+          background-color: $menuText !important;
+          color: darken($menuText, 60%) !important;
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08) !important;
+          
+          &:hover {
+            background-color: #f5f7fa !important;
+            color: $menuHover !important;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12) !important;
+            transform: translateY(-1px);
+          }
+          
+          &:active {
+            transform: translateY(0);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08) !important;
+          }
+        }
+        
+        &.el-button--primary {
+          background-color: $menuBg !important;
+          border: none !important;
+          color: #ffffff !important;
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08) !important;
+          
+          &:hover {
+            background-color: $menuHover !important;
+            color: #ffffff !important;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12) !important;
+            transform: translateY(-2px);
+          }
+          
+          &:active {
+            background-color: $menuBg !important;
+            color: #ffffff !important;
+            transform: translateY(0);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08) !important;
+          }
+        }
+      }
+    }
+  }
+}

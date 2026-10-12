@@ -1,0 +1,51 @@
+// ==================================================
+// 用户端主题（清爽绿色，贴合健康饮食）
+// ==================================================
+$client-color-primary: #2e7d32 !default;
+$client-color-primary-light: #66bb6a !default;
+$client-color-accent: #a5d6a7 !default;
+$client-color-bg: #f4f7f4 !default;
+$client-color-surface: #ffffff !default;
+$client-color-text-main: #1f3d24 !default;
+$client-color-text-secondary: #5f7462 !default;
+$client-color-border: #d7e3d7 !default;
+
+// Header
+$client-header-bg-start: #e8f5e9 !default;
+$client-header-bg-end: #f1f8f1 !default;
+$client-header-shadow: rgba(46, 125, 50, 0.12) !default;
+$client-header-title: $client-color-text-main !default;
+$client-header-menu: #5f7462 !default;
+$client-header-menu-active: $client-color-primary !default;
+$client-header-menu-hover: $client-color-primary-light !default;
+$client-header-menu-line-start: #66bb6a !default;
+$client-header-menu-line-end: $client-color-accent !default;
+
+// Footer
+$client-footer-bg-start: #f1f8f1 !default;
+$client-footer-bg-end: #e8f5e9 !default;
+$client-footer-border: $client-color-border !default;
+$client-footer-shadow: rgba(46, 125, 50, 0.08) !default;
+$client-footer-title: #1f3d24 !default;
+$client-footer-text: $client-color-text-secondary !default;
+$client-footer-link-hover: $client-color-primary !default;
+$client-footer-bottom-text: #8a9a8c !default;
+
+// Profile
+$client-profile-card-bg: $client-color-surface !default;
+$client-profile-card-border: $client-color-border !default;
+$client-profile-card-shadow: rgba(46, 125, 50, 0.08) !default;
+$client-profile-title: $client-color-text-main !default;
+$client-profile-subtitle: #6b7c6e !default;
+$client-profile-label: #5f7462 !default;
+$client-profile-input-border: $client-color-border !default;
+$client-profile-input-focus: $client-color-primary-light !default;
+$client-profile-error: #f56c6c !default;
+$client-profile-tab: #6b7c6e !default;
+$client-profile-tab-active: $client-color-primary !default;
+$client-profile-tab-bar: $client-color-primary !default;
+
+$client-pink-btn-start: #2e7d32 !default;
+$client-pink-btn-end: #43a047 !default;
+$client-pink-btn-shadow: rgba(46, 125, 50, 0.24) !default;
+$client-pink-btn-hover-shadow: rgba(46, 125, 50, 0.3) !default;
